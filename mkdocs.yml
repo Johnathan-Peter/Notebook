@@ -75,12 +75,12 @@ edit_uri: edit/main/docs/
 # [top-right corner]
 # [添加 GitHub 仓库]
 # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/
-repo_url: https://github.com/Yang-Xijie/yang-xijie.github.io
-repo_name: yang-xijie.github.io
+repo_url: https://johnathan-peter.github.io/Notebook/
+repo_name: johnathan-peter.github.io/Notebook
 # [bottom-left corner]
 # [版权说明]
 # https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/#copyright-notice
-copyright: 杨希杰 CC-BY-4.0
+copyright: Jonathan Peter 
 # [bottom-right corner]
 extra:
   # [添加社交网络图标和链接]
@@ -88,7 +88,7 @@ extra:
   # 搜索图标：https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search
   # name 会在鼠标悬浮时提示
   social: # icons
-    - name: GitHub | Yang-Xijie
+    - name: GitHub | Jonathan Peter
       icon: fontawesome/brands/github
       link: https://github.com/Johnathan-Peter
 

@@ -30,7 +30,7 @@ comments: true
         一个持续更新的个人知识站点：记录课程学习、实用工具积累与项目研究。
       </p>
       <div class="home-actions">
-        <a class="md-button md-button--primary" href="https://johnathan-peter.github.io/Notebook/Courses/NNControl/">进入笔记</a>
+        <a class="md-button md-button--primary" href="https://johnathan-peter.github.io/Notebook/Courses/智能控制技术/NNControl/">进入笔记</a>
         <a class="md-button" href="javascript:toggleStatistics();">站点统计</a>
       </div>
     </section>
@@ -65,22 +65,22 @@ comments: true
   <aside class="home-recent enter" style="--d: 0.08s;">
     <h3>最近在做</h3>
     <div class="home-recent-list">
-      <a href="CS/DL/C_D01_Introduction/">
+      <a href="Projects/SRTP/四足机器人运动流程/">
         <img class="home-recent-thumb"
-             src="https://images.pexels.com/photos/17483874/pexels-photo-17483874.png?auto=compress&cs=tinysrgb&w=800"
-             alt="deep learning network">
+             src="https://www.imaydesign.com/uploads/allimg/220828/2320053A4-3.jpg"
+             alt="robot ROS design">
         <span>
-          深度学习
-          <small>Deep Learning</small>
+          SRTP
+          <small>Legged Robot</small>
         </span>
       </a>
-      <a href="Tools/LeetCode/T_L00_Introduction/">
+      <a href="Projects/Webpage Design/个人网站(Mkdocs)/">
         <img class="home-recent-thumb"
              src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=800"
              alt="coding screen">
         <span>
-          LeetCode
-          <small>python</small>
+          Webpage Design
+          <small>HTML+Mkdocs+Java</small>
         </span>
       </a>
       <a href="CS/DL/Transformer/C_D03_Tf00_Introduction/">
@@ -88,8 +88,8 @@ comments: true
              src="https://images.pexels.com/photos/34194565/pexels-photo-34194565.jpeg?auto=compress&cs=tinysrgb&w=800"
              alt="robotic arm">
         <span>
-          VLA
-          <small>Transformer</small>
+          ETC
+          <small>Ready</small>
         </span>
       </a>
     </div>

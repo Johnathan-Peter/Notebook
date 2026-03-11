@@ -11,10 +11,10 @@ nav:
     - index.md
   - Courses:
     - 智能控制技术:
-      - Courses/NNControl.md
+      - Courses/智能控制技术/NNControl.md
   - Tools:
     - Markdown:
-      - Tools/grammars.md
+      - Tools/Markdown/grammars.md
     - Git:
       - Tools/Git/Git常用命令完整指南.md
     - ROS:

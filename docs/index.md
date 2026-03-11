@@ -36,21 +36,21 @@ comments: true
     </section>
 
     <section class="home-grid home-grid--v2 enter" style="--d: 0.1s;">
-      <a class="home-card" href="Class/Control/C_C01_Electrical_control/">
+      <a class="home-card" href="Courses/智能控制技术/NNControl/">
         <h3>Class</h3>
         <p>控制、机器人学习课程笔记。</p>
       </a>
-      <a class="home-card" href="Robotics/Navigation/R_N01_Navigation_planning/">
-        <h3>Robotics</h3>
-        <p>导航、定位、建模、嵌入式与多智能体。</p>
+      <a class="home-card" href="Tools/Markdown/grammars/">
+        <h3>Tools</h3>
+        <p>Markdown、Git、ROS等工具。</p>
       </a>
-      <a class="home-card" href="CS/ML/C_M01_ML/">
-        <h3>CS / AI</h3>
-        <p>机器学习、深度学习与算法学习。</p>
+      <a class="home-card" href="Projects/Webpage Design/个人网站(Mkdocs)/">
+        <h3>Projects</h3>
+        <p>建站实践、SRTP等项目。</p>
       </a>
       <a class="home-card" href="Tools/AI/">
-        <h3>Tools</h3>
-        <p>AI 工具、Git、Linux 与建站实践。</p>
+        <h3>ETC</h3>
+        <p>实践。</p>
       </a>
     </section>
 

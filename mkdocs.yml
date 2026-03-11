@@ -18,12 +18,14 @@ nav:
     - Markdown:
       - Tools/grammars.md
     - Git:
-      - Tools/Git/常用命令完整指南.md
+      - Tools/Git/Git常用命令完整指南.md
     - ROS:
       - Tools/ROS/知识点笔记.md
       - Tools/ROS/常用命令.md
   - 项目:
     - Projects/index.md
+    - Webpage Design:
+      - Projects/Webpage Design/个人网站(Mkdocs).md
     - SRTP:
       - Projects/SRTP/四足机器人运动流程.md
       - OCS2:

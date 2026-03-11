@@ -146,6 +146,9 @@ markdown_extensions:
   # [Markdown footnote 语法支持]
   # https://squidfunk.github.io/mkdocs-material/reference/footnotes/
   - footnotes
+    # [支持更多的 Markdown 语法]
+  - tables
+  - def_list
 
 extra_javascript:
   # [数学公式支持]

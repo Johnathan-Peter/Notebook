@@ -9,10 +9,10 @@ site_description: Jonathan's personal notebook
 nav:
   - Home:
     - index.md
-  - 课程:
+  - Courses:
     - 智能控制技术:
       - Courses/NNControl.md
-  - 工具:
+  - Tools:
     - Markdown:
       - Tools/grammars.md
     - Git:
@@ -20,7 +20,7 @@ nav:
     - ROS:
       - Tools/ROS/知识点笔记.md
       - Tools/ROS/常用命令.md
-  - 项目:
+  - Projects:
     - Webpage Design:
       - Projects/Webpage Design/个人网站(Mkdocs).md
     - SRTP:

@@ -7,7 +7,7 @@ site_description: Jonathan's personal notebook
 
 # [Navigtion]
 nav:
-  - 首页:
+  - Home:
     - index.md
   - 课程:
     - 智能控制技术:

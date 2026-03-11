@@ -83,6 +83,10 @@ theme:
     # [添加 GitHub 仓库]
     # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#repository-icon
     repo: fontawesome/brands/github
+  font:
+    text: Noto Serif SC # Roboto
+    code: JetBrains Mono
+
 edit_uri: edit/main/docs/
 repo_url: https://johnathan-peter.github.io/Notebook/
 repo_name: johnathan-peter.github.io/Notebook

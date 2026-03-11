@@ -107,7 +107,7 @@ function formatDuration(startDate) {
 }
 
 function updateTime() {
-  var started = new Date("2024-06-03T09:10:00+08:00");
+  var started = new Date("2026-03-10T09:10:00+08:00");
   var target = document.getElementById("web-time");
   target.textContent = formatDuration(started);
 }

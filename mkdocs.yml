@@ -15,7 +15,11 @@ nav:
       - Courses/NNControl.md
   - 工具:
     - Tools/grammars.md
-
+  - 项目:
+    - Projects/index.md
+    - SRTP:
+      - Projects/SRTP/四足机器人运动流程.md
+      
 # [UI]
 # [top]
 theme:

@@ -1,22 +1,24 @@
-name: publish site
-# 触发条件
+name: deploy
+
 on:
   push:
     branches:
-      - main
-# workflow 的具体内容
+      - master
+
+permissions:
+  contents: write
+
 jobs:
   deploy:
-    # 创建一个 Ubuntu 容器
     runs-on: ubuntu-latest
     steps:
-      # 先打开 main 分支
-      - uses: actions/checkout@v2
-      # 再安装 Python 和相关环境
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0    # for mkdocs-git-revision-date-localized-plugin
+      - uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      # 使用包管理工具 pip 安装 mkdocs-material
-      - run: pip install mkdocs-material
-      # 使用 mkdocs-material 构建网站并部署到 gh-pages 分支
+      - run: pip install -r requirements.txt
+      - name: Create CNAME file
+        run: echo "https://awslasasd.github.io" > docs/CNAME   # Adjust the path if your configuration is different
       - run: mkdocs gh-deploy --force

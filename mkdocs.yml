@@ -7,10 +7,14 @@ site_description: Jonathan's personal notebook
 
 # [Navigtion]
 nav:
+  - 首页:
+    - index.md
   - 课程:
     - Courses/index.md
-    - 智能控制技术：
+    - 智能控制技术:
       - Courses/NNControl.md
+  - 工具:
+    - Tools/grammars.md
 
 # [UI]
 # [top]

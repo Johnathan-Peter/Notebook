@@ -11,7 +11,7 @@ nav:
     - index.md
   - Courses:
     - 智能控制技术:
-      - Courses/智能控制技术/一、递阶控制.md
+      - Courses/智能控制技术/一、递阶控制1.md
       - Courses/智能控制技术/二、专家控制.md
       - Courses/智能控制技术/三、模糊控制.md
       - Courses/智能控制技术/四、神经网络控制.md   

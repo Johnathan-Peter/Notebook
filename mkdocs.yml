@@ -11,7 +11,16 @@ nav:
     - index.md
   - Courses:
     - 智能控制技术:
-      - Courses/智能控制技术/NNControl.md
+      - Courses/智能控制技术/一、递阶控制.md
+      - Courses/智能控制技术/二、专家控制.md
+      - Courses/智能控制技术/三、模糊控制.md
+      - Courses/智能控制技术/四、神经网络控制.md   
+      - 应用举例:
+        - Courses/智能控制技术/应用举例/递阶控制作业.md
+        - Courses/智能控制技术/应用举例/专家控制作业.md    
+        - Courses/智能控制技术/应用举例/模糊控制作业.md
+        - Courses/智能控制技术/应用举例/神经网络控制作业.md
+        - Courses/智能控制技术/应用举例/大作业设计方案.md     
   - Tools:
     - Markdown:
       - Tools/Markdown/grammars.md

@@ -27,7 +27,9 @@ nav:
       - Projects/SRTP/四足机器人运动流程.md
       - OCS2:
         - Projects/SRTP/OCS2/介绍.md
+        - Projects/SRTP/OCS2/安装.md
         - Projects/SRTP/OCS2/算法框架.md
+        - Projects/SRTP/OCS2/文件框架.md
     - ZJUNlict:
       - Projects/ZJUNlict/项目介绍.md
 # [UI]

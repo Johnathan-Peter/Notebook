@@ -13,7 +13,7 @@ comments: true
       <span class="home-avatar-action">:)</span>
     </div>
     <h3 class="home-profile-name">Jonathan</h3>
-    <p class="home-profile-desc">Zhejiang university</p>
+    <p class="home-profile-desc">Zhejiang University</p>
     <div class="home-profile-meta">
       <span>Major in automation</span>
     </div>

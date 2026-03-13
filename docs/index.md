@@ -36,7 +36,7 @@ comments: true
     </section>
 
     <section class="home-grid home-grid--v2 enter" style="--d: 0.1s;">
-      <a class="home-card" href="Courses/智能控制技术/NNControl/">
+      <a class="home-card" href="Courses/智能控制技术/一、递阶控制/">
         <h3>Class</h3>
         <p>控制、机器人学习课程笔记。</p>
       </a>

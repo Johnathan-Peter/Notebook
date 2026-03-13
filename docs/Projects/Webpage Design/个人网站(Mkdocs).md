@@ -1,5 +1,5 @@
 在使用 MkDocs 构建笔记网站时，项目根目录下的这些文件和文件夹各有其用途。下面逐一解释，并重点说明 `.gitignore` 的作用。
-
+## Github Pages网页搭建
 ### 文件/文件夹作用详解
 ####  `.github/`
 + **用途**：存放与 GitHub 相关的自动化配置，最常用的是 **GitHub Actions** 工作流文件（位于 `.github/workflows/`）。  

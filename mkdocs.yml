@@ -20,7 +20,9 @@ nav:
         - Courses/智能控制技术/应用举例/专家控制作业.md    
         - Courses/智能控制技术/应用举例/模糊控制作业.md
         - Courses/智能控制技术/应用举例/神经网络控制作业.md
-        - Courses/智能控制技术/应用举例/大作业设计方案.md     
+        - Courses/智能控制技术/应用举例/大作业设计方案.md    
+    - 机器人建模与控制:
+      - Courses/机器人建模与控制/一、空间描述和变换.md
   - Tools:
     - Markdown:
       - Tools/Markdown/grammars.md

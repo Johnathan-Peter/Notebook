@@ -30,7 +30,7 @@ comments: true
         一个持续更新的个人知识站点：记录课程学习、实用工具积累与项目研究。
       </p>
       <div class="home-actions">
-        <a class="md-button md-button--primary" href="https://johnathan-peter.github.io/Notebook/Courses/智能控制技术/NNControl/">进入笔记</a>
+        <a class="md-button md-button--primary" href="https://johnathan-peter.github.io/Notebook/Courses/智能控制技术/一、递阶控制/">进入笔记</a>
         <a class="md-button" href="javascript:toggleStatistics();">站点统计</a>
       </div>
     </section>

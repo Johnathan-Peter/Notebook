@@ -26,6 +26,7 @@ nav:
       - Courses/机器人建模与控制/二、正向运动学.md
       - Courses/机器人建模与控制/三、逆向运动学.md
       - Courses/机器人建模与控制/四、微分运动学和静力学.md
+      - Courses/机器人建模与控制/五、机器人轨迹规划.md
   - Tools:
     - Markdown:
       - Tools/Markdown/grammars.md

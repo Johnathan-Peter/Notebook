@@ -31,6 +31,9 @@ nav:
       - Courses/机器人建模与控制/七、运动控制.md
       - Courses/机器人建模与控制/八、力控制.md
       - Courses/机器人建模与控制/九、实验.md
+    - 空中机器人:
+      - Courses/空中机器人/一、基础知识.md
+      - Courses/空中机器人/二、进阶知识.md
 
   - Tools:
     - Markdown:
@@ -57,8 +60,8 @@ nav:
         - Projects/SRTP/OCS2/算法框架.md
         - Projects/SRTP/OCS2/文件框架.md
 
-    - ZJUNlict:
-      - Projects/ZJUNlict/项目介绍.md
+    - CIMC:
+      - Projects/CIMC/项目介绍.md
 # [UI]
 # [top]
 theme:

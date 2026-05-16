@@ -25,8 +25,13 @@ nav:
       - Courses/机器人建模与控制/一、空间描述和变换.md
       - Courses/机器人建模与控制/二、正向运动学.md
       - Courses/机器人建模与控制/三、逆向运动学.md
-      - Courses/机器人建模与控制/四、微分运动学和静力学.md
+      - Courses/机器人建模与控制/四、瞬时运动学与静力学.md
       - Courses/机器人建模与控制/五、机器人轨迹规划.md
+      - Courses/机器人建模与控制/六、动力学.md
+      - Courses/机器人建模与控制/七、运动控制.md
+      - Courses/机器人建模与控制/八、力控制.md
+      - Courses/机器人建模与控制/九、实验.md
+
   - Tools:
     - Markdown:
       - Tools/Markdown/grammars.md

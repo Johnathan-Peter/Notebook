@@ -1,90 +1,1482 @@
 <!doctype html>
 <html lang="zh-CN" data-theme="dark">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light"><title>日常 · Jonathan's Notebook</title>
-<style>
-/* 01 / Tokens and responsive layout */
-:root{--bg:#101311;--card:#1a1f1b;--field:#121713;--line:#303a32;--text:#edf2ea;--muted:#9ca99e;--accent:#b9db8b;--ink:#192411;--up:#f38e8e;--down:#82c8a0;color-scheme:dark;font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif}
-[data-theme=light]{--bg:#f2f4ee;--card:#fff;--field:#f5f7f1;--line:#d9e0d4;--text:#243022;--muted:#65715f;--accent:#577d33;--ink:#fff;--up:#c34242;--down:#278254;color-scheme:light}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);line-height:1.6}button,input,select,textarea{font:inherit}button,a,input,select,textarea{touch-action:manipulation}button,a{transition:background .18s,transform .18s}button{cursor:pointer;background:var(--field);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:10px 15px;min-height:44px}button:hover{border-color:var(--accent)}button:active{transform:scale(.98)}button.primary{background:var(--accent);color:var(--ink);border-color:transparent}a{color:var(--accent);text-decoration:none}:focus-visible{outline:2px solid var(--accent);outline-offset:3px}header{max-width:1220px;margin:auto;padding:26px 28px;display:flex;justify-content:space-between;gap:16px;align-items:center}.brand{font-weight:700;font-size:18px}.brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:2px}main{max-width:1220px;margin:auto;padding:18px 28px 110px}.eyebrow{font-size:12px;letter-spacing:3px;color:var(--accent)}h1{font-size:clamp(30px,4vw,48px);line-height:1.3;margin:12px 0}h2{font-size:20px;margin:0}h3{font-size:15px;margin:0 0 12px}.muted,small{color:var(--muted)}p{margin:10px 0}.intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:18px 0 28px}.datebar,.row,.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.datebar{background:var(--card);padding:8px;border:1px solid var(--line);border-radius:16px}.datebar input{width:155px;border:0;background:none}.datebar button{padding:8px 12px}.rings{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.ringcard{display:flex;align-items:center;gap:14px;padding:20px;background:var(--card);border:1px solid var(--line);border-radius:18px}.ring{width:62px;height:62px;flex-shrink:0;border-radius:50%;background:conic-gradient(var(--accent) var(--p),var(--line) 0);display:grid;place-items:center}.ring span{border-radius:50%;background:var(--card);width:50px;height:50px;display:grid;place-items:center;font-size:12px}.number{font-size:26px;font-weight:650;line-height:1.25}.reminder{padding:16px 0 24px;color:var(--muted);font-size:14px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}.card{padding:24px;background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 8px 24px #00000008}.cardhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}.cardhead small{font-size:12px}.wide{grid-column:1/-1}.badge{color:var(--accent);font-size:12px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}label{display:block;font-size:12px;color:var(--muted)}input,select,textarea{display:block;width:100%;min-width:0;background:var(--field);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:10px;margin:5px 0 0;min-height:44px}textarea{resize:vertical;min-height:72px}label.note{margin-top:14px}.item{border:1px solid var(--line);padding:14px;border-radius:14px;margin-bottom:12px}.item .remove{margin-top:10px;font-size:12px}.empty{padding:16px 0;color:var(--muted);font-size:14px}.totals{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.totals span{padding:5px 10px;background:var(--field);border-radius:8px;color:var(--muted);font-size:12px}.mealgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.mealgrid label{margin-top:10px}nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);padding:6px;background:var(--card);border:1px solid var(--line);border-radius:18px;display:flex;gap:6px;z-index:10;box-shadow:0 10px 35px #0004}nav button{border:0;white-space:nowrap}nav button[aria-current=true]{background:var(--accent);color:var(--ink)}[hidden]{display:none!important}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}.stat{padding:18px;border:1px solid var(--line);border-radius:14px}.stat .number{margin:6px 0}.up{color:var(--up)}.down{color:var(--down)}.heat{display:grid;grid-template-columns:repeat(10,1fr);gap:8px;margin-top:18px}.heat button{padding:8px 0;min-width:0;background:color-mix(in srgb,var(--accent) var(--level),var(--field));font-size:12px}.bars{display:grid;gap:12px;margin-top:18px}.bar{display:grid;grid-template-columns:56px 1fr 35px;align-items:center;gap:10px;font-size:13px}.track{height:10px;background:var(--line);border-radius:8px;overflow:hidden}.track i{display:block;height:100%;background:var(--accent);border-radius:8px;transition:width .2s}#summaryText{min-height:160px}.settings{max-width:760px;margin:auto}.settings .fields{margin-top:22px}.foot{font-size:12px;color:var(--muted);margin:28px 0}#status{font-size:12px;color:var(--muted)}#toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--ink);padding:12px 20px;border-radius:12px;z-index:30;max-width:90%}@media(max-width:950px){.rings{grid-template-columns:repeat(2,1fr)}.intro{display:block}.datebar{margin-top:22px;width:fit-content}.mealgrid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){header{padding:18px 16px}main{padding:12px 16px 110px}.grid{grid-template-columns:1fr}.card{padding:18px}.ringcard{padding:14px;gap:10px}.ring{width:48px;height:48px}.ring span{width:38px;height:38px;font-size:10px}.number{font-size:22px}.ringcard small{font-size:10px}.rings{gap:10px}.fields{gap:10px}.heat{gap:5px}.heat button{font-size:11px}.brand{font-size:15px}.intro{margin-top:10px}nav{bottom:12px}header .actions{gap:6px}header button{padding:8px 10px}}@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-</style></head>
-<body>
-<header><a class="brand" href="./">Jonathan's Notebook<small>PERSONAL SPACE / 日常</small></a><div class="actions"><span id="status" role="status" aria-live="polite">本地记录</span><button id="theme" aria-label="切换深浅色">◐</button></div></header>
-<main>
-<div class="intro"><div><div class="eyebrow">LIFE, ONE DAY AT A TIME</div><h1>把日子，慢慢记下来。</h1><p class="muted">学习、休息，也留一点时间给自己。</p></div><div class="datebar"><button id="prev" aria-label="前一天">←</button><label><span hidden>记录日期</span><input id="date" type="date" required></label><button id="next" aria-label="后一天">→</button><button id="today">今天</button></div></div>
-<section id="daily"><div class="rings" id="rings"></div><p class="reminder" id="reminder" aria-live="polite"></p><div class="grid">
-<article class="card"><div class="cardhead"><h2>01 / 学习</h2><button id="unit">显示小时</button></div><div id="studyTotal" class="number"></div><div id="studyItems"></div><button data-add="study" class="primary">＋ 添加学习项</button><label class="note">学习备注<textarea data-path="studyNote" placeholder="今天理解了什么，或者遇到了什么问题？"></textarea></label></article>
-<article class="card"><div class="cardhead"><h2>02 / 睡眠</h2><span class="badge" id="sleepTotal"></span></div><p class="muted"><small>记录这一天起床前的一次睡眠，自动识别跨零点。</small></p><div class="fields"><label>入睡时间<input type="time" data-path="sleep.bed"></label><label>起床时间<input type="time" data-path="sleep.wake"></label><label>睡眠质量<select data-path="sleep.quality"><option value="">未记录</option><option value="1">1 · 很差</option><option value="2">2 · 较差</option><option value="3">3 · 一般</option><option value="4">4 · 不错</option><option value="5">5 · 很好</option></select></label></div><label class="note">睡眠备注<textarea data-path="sleep.note" placeholder="醒来时的感受、梦境或影响睡眠的事情"></textarea></label></article>
-<article class="card wide"><div class="cardhead"><h2>03 / 运动健身</h2><small>休息也是计划的一部分</small></div><div class="totals" id="muscles"></div><div id="exerciseItems"></div><button data-add="exercise" class="primary">＋ 添加训练组</button><label class="note">运动备注<textarea data-path="exerciseNote" placeholder="身体状态、动作感受，或好好休息的一天"></textarea></label></article>
-<article class="card wide"><div class="cardhead"><h2>04 / 好好吃饭</h2><small>三餐有记录，生活有节奏</small></div><div class="mealgrid" id="meals"></div><label class="note">三餐备注<textarea data-path="mealNote" placeholder="今天喜欢的一道菜，或想尝试的搭配"></textarea></label></article>
-<article class="card wide"><div class="cardhead"><h2>05 / 个人探索</h2><small>给好奇心留一块地方</small></div><div id="exploreItems"></div><button data-add="explore" class="primary">＋ 添加探索</button><label class="note">探索备注<textarea data-path="exploreNote" placeholder="新的灵感、想法和小小的发现"></textarea></label></article>
-</div></section>
-<section id="monthly" hidden><div class="cardhead"><div><h2>月度回望</h2><small>每一次记录，都在这里积累。</small></div><label>统计月份<input type="month" id="month"></label></div><div id="monthStats" class="stats"></div><div class="grid"><article class="card"><h2>运动分布</h2><div id="exerciseBars" class="bars"></div></article><article class="card"><h2>探索的方向</h2><div id="exploreBars" class="bars"></div></article><article class="card wide"><h2>最近 30 天</h2><p class="muted"><small id="heatLabel"></small></p><div id="heat" class="heat"></div><small>颜色越深，记录模块越多 · 点击补录</small></article><article class="card wide"><div class="cardhead"><h2>把这个月写成一段话</h2><button id="generate" class="primary">生成月度文字总结</button></div><label>月度文字总结<textarea id="summaryText" readonly placeholder="点击生成，整理数据和高频备注。所有计算均在本地完成。"></textarea></label><button id="copy" style="margin-top:12px">复制总结</button><p><small>备注按短句出现频率整理，不发送给任何服务。</small></p></article></div><p class="foot">统计口径：日均学习按本月截至今天的自然日计算，历史月按整月；睡眠仅统计填写完整的日期。运动次数按有训练的日期计，各分类按当日出现一次计。三餐规律率 = 已吃餐数 ÷ 应有餐数；外卖占比以已吃餐数为分母。最佳单日按四项目标完成度等权计算。</p></section>
-<section id="settings" class="settings" hidden><article class="card"><div class="eyebrow">YOUR OWN PACE</div><h1>按自己的节奏来。</h1><p class="muted">目标是方向，可以随时调整。</p><div class="fields"><label>每日学习目标 / 分钟<input type="number" min="1" max="1440" data-setting="study"></label><label>睡眠目标 / 小时<input type="number" min="1" max="24" step="0.5" data-setting="sleep"></label><label>每周运动目标 / 次<input type="number" min="1" max="7" data-setting="exercise"></label><label>每日探索目标 / 分钟<input type="number" min="1" max="1440" data-setting="explore"></label></div><p class="foot">运动进度环显示所选日期所在周的训练天数（周一至周日），其他进度环显示当日数据。统计使用当前目标。</p></article><article class="card" style="margin-top:18px"><h2>数据，留在自己手里。</h2><p class="muted">仅存当前浏览器。清理浏览器数据或更换设备不会自动同步，请定期导出备份。</p><div class="actions"><button id="export" class="primary">导出 JSON 备份</button><button id="import">导入备份</button><input type="file" id="file" accept="application/json,.json" hidden></div><p class="foot">导入前校验格式并确认；同一天的记录将由备份覆盖，其他日期保留。无登录、无数据上报、无外部依赖。</p></article></section>
-<p class="foot">日常 / A little more present, every day.</p>
-</main><nav aria-label="应用导航"><button data-view="daily" aria-current="true">今日记录</button><button data-view="monthly">月度回望</button><button data-view="settings">目标与设置</button></nav><div id="toast" role="status" hidden></div>
-<script>
-'use strict';
-// 02 / Data model, local calendar helpers and persistence (one key only).
-const KEY='notebook.life.v1', CATS=['有氧','胸','背','肩','腿'], TOPICS=['读书','写作','副业','技能','其他'];
-const defaults={study:180,sleep:8,exercise:3,explore:30,theme:'dark',unit:'minutes'};
-const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const num=x=>Math.max(0,Number(x)||0), round=x=>Math.round(x*10)/10;
-function key(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
-function shift(k,n){const d=new Date(k+'T12:00:00');d.setDate(d.getDate()+n);return key(d)}
-const today=()=>key(new Date());let selected=today(),month=selected.slice(0,7),view='daily',timer,toastTimer,storageBroken=false;
-function blank(){return {study:[],studyNote:'',sleep:{bed:'',wake:'',quality:'',note:''},exercise:[],exerciseNote:'',meals:{breakfast:{},lunch:{},dinner:{}},mealNote:'',explore:[],exploreNote:''}}
-function validDate(k){return /^\d{4}-\d{2}-\d{2}$/.test(k)&&!isNaN(new Date(k+'T12:00:00'))&&key(new Date(k+'T12:00:00'))===k}
-// Validate backups and stored values before allowing them into forms/statistics.
-function validate(raw){
- if(!raw||typeof raw!=='object'||!raw.records||typeof raw.records!=='object'||Array.isArray(raw.records)||!raw.settings||typeof raw.settings!=='object')throw Error('备份格式不正确');
- const settings={...defaults};for(const k of ['study','sleep','exercise','explore'])if(raw.settings[k]!==undefined){const v=Number(raw.settings[k]);if(!Number.isFinite(v)||v<=0||v>({sleep:24,exercise:7}[k]||1440))throw Error('目标数值不正确');settings[k]=v}
- if(['dark','light'].includes(raw.settings.theme))settings.theme=raw.settings.theme;if(['minutes','hours'].includes(raw.settings.unit))settings.unit=raw.settings.unit;
- const records={};const str=v=>{if(v===undefined||v===null)return '';if(typeof v!=='string'||v.length>20000)throw Error('文本格式不正确');return v};const numeric=(v,max)=>{if(v===undefined||v==='')return '';if(!Number.isFinite(Number(v))||Number(v)<0||Number(v)>max)throw Error('记录数值不正确');return Number(v)};
- for(const [date,r]of Object.entries(raw.records)){if(!validDate(date)||!r||typeof r!=='object')throw Error('日期或记录格式不正确');const b=blank();for(const n of ['studyNote','exerciseNote','mealNote','exploreNote'])b[n]=str(r[n]);for(const type of ['study','exercise','explore']){if(r[type]!==undefined&&!Array.isArray(r[type]))throw Error('记录列表格式不正确');b[type]=(r[type]||[]).map(i=>{if(!i||typeof i!=='object')throw Error('记录项格式不正确');return type==='exercise'?{category:CATS.includes(i.category)?i.category:'有氧',action:str(i.action),sets:numeric(i.sets,1000),minutes:numeric(i.minutes,1440),rpe:numeric(i.rpe,10),note:str(i.note)}:type==='study'?{content:str(i.content),minutes:numeric(i.minutes,1440),note:str(i.note)}:{topic:TOPICS.includes(i.topic)?i.topic:'其他',minutes:numeric(i.minutes,1440),note:str(i.note)}})}
- const s=r.sleep||{};for(const t of ['bed','wake']){b.sleep[t]=str(s[t]);if(b.sleep[t]&&!/^([01]\d|2[0-3]):[0-5]\d$/.test(b.sleep[t]))throw Error('时间格式不正确')}b.sleep.quality=numeric(s.quality,5);if(b.sleep.quality!==''&&(!Number.isInteger(b.sleep.quality)||b.sleep.quality<1))throw Error('睡眠质量应为 1–5');b.sleep.note=str(s.note);
- for(const m of ['breakfast','lunch','dinner']){const x=r.meals?.[m]||{};b.meals[m]={status:['已吃','未吃'].includes(x.status)?x.status:'',content:str(x.content),source:['自制','外卖','其他'].includes(x.source)?x.source:'',health:['好','一般','差'].includes(x.health)?x.health:'',note:str(x.note)}}records[date]=b;
- }return {records,settings};
-}
-let data={records:{},settings:{...defaults}};try{const saved=localStorage.getItem(KEY);if(saved)data=validate(JSON.parse(saved))}catch(e){storageBroken=true;$('#status').textContent='存储读取失败，请先导出或检查浏览器';}
-const record=()=>data.records[selected]||blank();
-function flush(){clearTimeout(timer);timer=null;try{if(storageBroken)throw Error();localStorage.setItem(KEY,JSON.stringify(data));$('#status').textContent='已保存在本机'}catch{$('#status').textContent='保存失败，请导出备份';}}
-function save(){clearTimeout(timer);$('#status').textContent='正在保存…';timer=setTimeout(flush,250)}
-window.addEventListener('pagehide',()=>{if(timer)flush()});document.addEventListener('visibilitychange',()=>{if(document.hidden&&timer)flush()});
-function toast(t){$('#toast').textContent=t;$('#toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').hidden=true,2800)}
-// 03 / Pure calculations. Missing modules stay absent rather than counting as failures.
-const sum=(r,t)=>r[t].reduce((a,i)=>a+num(i.minutes),0);
-function sleepHours(r){const {bed,wake}=r.sleep;if(!bed||!wake)return null;const mins=t=>Number(t.slice(0,2))*60+Number(t.slice(3));return ((mins(wake)-mins(bed)+1440)%1440)/60}
-const trained=r=>r.exercise.some(i=>num(i.sets)>0||num(i.minutes)>0);
-function activity(r){return [r.study.some(i=>i.content||num(i.minutes)||i.note)||r.studyNote,r.sleep.bed||r.sleep.wake||r.sleep.quality||r.sleep.note,r.exercise.length||r.exerciseNote,Object.values(r.meals).some(m=>Object.values(m).some(Boolean))||r.mealNote,r.explore.length||r.exploreNote].filter(Boolean).length}
-function weekCount(date){const d=new Date(date+'T12:00:00'),start=shift(date,-((d.getDay()+6)%7));return Array.from({length:7},(_,i)=>data.records[shift(start,i)]).filter(r=>r&&trained(r)).length}
-function score(r){return (Math.min(sum(r,'study')/data.settings.study,1)+Math.min((sleepHours(r)||0)/data.settings.sleep,1)+(trained(r)?1:0)+Math.min(sum(r,'explore')/data.settings.explore,1))/4}
-function streak(){let d=today();if(!data.records[d]||!activity(data.records[d]))d=shift(d,-1);let n=0;while(data.records[d]&&activity(data.records[d])){n++;d=shift(d,-1)}return n}
-function stats(m){const end=key(new Date(Number(m.slice(0,4)),Number(m.slice(5)),0,12));const elapsed=m===today().slice(0,7)?Number(today().slice(8)):m>today().slice(0,7)?0:Number(end.slice(8));const rows=Object.entries(data.records).filter(([d,r])=>d.startsWith(m)&&d<=today()&&activity(r));let study=0,explore=0,hit=0,sleep=[],quality=[],late=null,exercise=0,eaten=0,takeout=0,best=null,dist=Object.fromEntries(CATS.map(c=>[c,0])),topics={},notes=[];
- for(const[d,r]of rows){study+=sum(r,'study');explore+=sum(r,'explore');if(sum(r,'study')>=data.settings.study)hit++;const h=sleepHours(r);if(h!==null)sleep.push(h);if(r.sleep.quality)quality.push(num(r.sleep.quality));if(r.sleep.bed){let v=Number(r.sleep.bed.slice(0,2))*60+Number(r.sleep.bed.slice(3));if(v<720)v+=1440;if(!late||v>late.v)late={date:d,time:r.sleep.bed,v}}
- if(trained(r))exercise++;for(const c of CATS)if(r.exercise.some(i=>i.category===c&&(num(i.sets)||num(i.minutes))))dist[c]++;for(const meal of Object.values(r.meals))if(meal.status==='已吃'){eaten++;if(meal.source==='外卖')takeout++}for(const i of r.explore)topics[i.topic]=(topics[i.topic]||0)+num(i.minutes);if(!best||score(r)>best.score)best={date:d,score:score(r)};
- notes.push(r.studyNote,r.sleep.note,r.exerciseNote,r.mealNote,r.exploreNote,...r.study.map(i=>i.note),...r.exercise.map(i=>i.note),...r.explore.map(i=>i.note),...Object.values(r.meals).map(i=>i.note));
- }return {study,explore,hit,avg:elapsed?study/elapsed:0,sleep:sleep.length?sleep.reduce((a,b)=>a+b)/sleep.length:null,quality:quality.length?quality.reduce((a,b)=>a+b)/quality.length:null,late,exercise,dist,topics,eaten,takeout,regular:elapsed?eaten/(elapsed*3)*100:0,takeRate:eaten?takeout/eaten*100:0,best,notes,days:rows.length,elapsed};}
-// 04 / Form rendering; user text is always escaped. Delegated input updates do not replace focused controls.
-function input(label,path,value='',type='text',max){return `<label>${label}<input type="${type}" data-path="${path}" value="${esc(value)}" ${type==='number'?`min="0" max="${max||1440}" step="${path.endsWith('sets')?'1':'0.1'}"`:''}></label>`}
-function select(label,path,options,value){return `<label>${label}<select data-path="${path}">${options.map(x=>`<option value="${esc(x)}" ${x===value?'selected':''}>${esc(x||'未记录')}</option>`).join('')}</select></label>`}
-function note(path,value){return `<label class="note">备注<textarea data-path="${path}" placeholder="写下想留下的细节">${esc(value)}</textarea></label>`}
-function renderItems(type){const items=record()[type];$('#'+type+'Items').innerHTML=items.length?items.map((i,n)=>{const p=`${type}.${n}.`;let fields=type==='study'?input('学习内容',p+'content',i.content)+input('时长 / 分钟',p+'minutes',i.minutes,'number'):type==='exercise'?select('分类',p+'category',CATS,i.category)+input('动作',p+'action',i.action)+input('组数',p+'sets',i.sets,'number',1000)+input('时长 / 分钟',p+'minutes',i.minutes,'number')+input('强度 RPE / 0–10',p+'rpe',i.rpe,'number',10):select('主题',p+'topic',TOPICS,i.topic)+input('时长 / 分钟',p+'minutes',i.minutes,'number');return `<div class="item"><div class="fields">${fields}</div>${note(p+'note',i.note)}<button class="remove" data-remove="${type}" data-index="${n}" aria-label="删除第 ${n+1} 条${type==='study'?'学习':type==='exercise'?'训练':'探索'}记录">移除此项</button></div>`}).join(''):`<p class="empty">${type==='study'?'从一段专注开始，添加今天的第一项学习。':type==='exercise'?'今天还没有训练记录，休息日也很好。':'读几页书，试一个想法，记录你的好奇心。'}</p>`}
-function populate(){const r=record();for(const t of ['study','exercise','explore'])renderItems(t);$('#meals').innerHTML=[['breakfast','早餐'],['lunch','午餐'],['dinner','晚餐']].map(([k,title])=>{const m=r.meals[k],p=`meals.${k}.`;return `<div class="item"><h3>${title}</h3>${select('用餐状态',p+'status',['','已吃','未吃'],m.status)}${input('吃了什么',p+'content',m.content)}${select('来源',p+'source',['','自制','外卖','其他'],m.source)}${select('主观健康度',p+'health',['','好','一般','差'],m.health)}${note(p+'note',m.note)}</div>`}).join('');for(const el of $$('[data-path]')){const v=el.dataset.path.split('.').reduce((o,k)=>o?.[k],r);el.value=v??''}$('#date').value=selected;$('#month').value=month;for(const el of $$('[data-setting]'))el.value=data.settings[el.dataset.setting];document.documentElement.dataset.theme=data.settings.theme;update()}
-function duration(n){return data.settings.unit==='hours'?`${round(n/60)} 小时`:`${round(n)} 分钟`}
-function update(){const r=record(),s=data.settings,values=[sum(r,'study'),sleepHours(r)||0,weekCount(selected),sum(r,'explore')],goals=[s.study,s.sleep,s.exercise,s.explore],titles=['学习','睡眠','本周运动','探索'],units=['分钟','小时','次','分钟'];$('#rings').innerHTML=values.map((v,i)=>`<div class="ringcard"><div class="ring" style="--p:${Math.min(v/goals[i],1)*100}%"><span>${Math.round(v/goals[i]*100)}%</span></div><div><small>${titles[i]}</small><div class="number">${round(v)}<small> ${units[i]}</small></div><small>目标 ${goals[i]} ${units[i]}</small></div></div>`).join('');$('#studyTotal').textContent=duration(values[0]);$('#unit').textContent=s.unit==='hours'?'显示分钟':'显示小时';$('#sleepTotal').textContent=sleepHours(r)===null?'等待一次好眠':`${round(sleepHours(r))} 小时`;$('#muscles').innerHTML=CATS.map(c=>`<span>${c} ${r.exercise.filter(i=>i.category===c&&(num(i.sets)||num(i.minutes))).length}</span>`).join('');$('#reminder').textContent=values[0]<s.study?`${selected===today()?'今天':'这一天'}学习 ${round(values[0])} 分钟，距离目标还剩 ${duration(s.study-values[0])}，要不要先来 25 分钟？`:values[3]<s.explore?'给自己留一点探索时间，做一件好奇的小事。':'今天已经留下了自己的节奏，好好休息。';if(view==='monthly')renderMonth();}
-function bars(target,dist,unit){const max=Math.max(...Object.values(dist),1);$(target).innerHTML=Object.keys(dist).length?Object.entries(dist).map(([name,v])=>`<div class="bar"><span>${esc(name)}</span><div class="track" role="img" aria-label="${esc(name)} ${round(v)} ${unit}"><i style="width:${v/max*100}%"></i></div><span>${round(v)}</span></div>`).join(''):'<p class="empty">还没有记录，探索会慢慢有方向。</p>'}
-function previousMonth(m){return key(new Date(Number(m.slice(0,4)),Number(m.slice(5))-2,1,12)).slice(0,7)}
-function change(v,p){if(!p)return v?'较上月 新增':'较上月 持平';const n=(v-p)/p*100;return `<span class="${n>0?'up':n<0?'down':''}">较上月 ${n>0?'↑':n<0?'↓':''}${Math.abs(round(n))}%</span>`}
-function renderMonth(){const s=stats(month),p=stats(previousMonth(month));const tiles=[['学习总时长',duration(s.study),change(s.study,p.study)],['日均学习',duration(s.avg),`达标 ${s.hit} 天`],['平均睡眠',s.sleep===null?'—':`${round(s.sleep)} 小时`,(s.quality===null?'质量未记录':`平均质量 ${round(s.quality)} / 5`)+` · ${s.sleep===null||p.sleep===null?'上月暂无可比睡眠':change(s.sleep,p.sleep)}`],['最晚入睡',s.late?s.late.time:'—',s.late?s.late.date:'等待睡眠记录'],['运动次数',`${s.exercise} 次`,change(s.exercise,p.exercise)],['三餐规律率',`${round(s.regular)}%`,`外卖占比 ${round(s.takeRate)}% · 已吃 ${s.eaten} 餐<br>${change(s.regular,p.regular)}`],['探索总时长',duration(s.explore),change(s.explore,p.explore)],['连续记录',`${streak()} 天`,'截至今天或昨天 · 跨月累计'],['本月最佳单日',s.best?s.best.date.slice(5):'—',s.best?`目标综合完成度 ${Math.round(s.best.score*100)}%`:'写下第一条记录吧']];$('#monthStats').innerHTML=tiles.map(([title,v,sub])=>`<div class="stat"><small>${title}</small><div class="number">${v}</div><small>${sub}</small></div>`).join('');bars('#exerciseBars',s.dist,'次');bars('#exploreBars',s.topics,'分钟');const end=month===today().slice(0,7)?today():key(new Date(Number(month.slice(0,4)),Number(month.slice(5)),0,12));$('#heatLabel').textContent=`${shift(end,-29)} — ${end} · 空白表示暂无记录`;$('#heat').innerHTML=Array.from({length:30},(_,i)=>{const d=shift(end,i-29),n=data.records[d]?activity(data.records[d]):0;return `<button data-day="${d}" style="--level:${n?15+n*14:0}%" title="${d} · ${n} 个模块" aria-label="${d}，记录 ${n} 个模块">${d.slice(5)}</button>`}).join('');if($('#summaryText').value)generate();}
-function comparison(v,p){return p?`较上月${v>=p?'增加':'减少'} ${Math.abs(round((v-p)/p*100))}%`:v?'上月为 0，本月新增记录':'与上月持平'}
-function generate(){const s=stats(month),p=stats(previousMonth(month)),counts=new Map();for(const note of s.notes)for(const phrase of (note||'').split(/[。！？\n；;，,]/)){const text=phrase.trim();if(text.length>1)counts.set(text,(counts.get(text)||0)+1)}const frequent=[...counts].sort((a,b)=>b[1]-a[1]).slice(0,3).map(([t,n])=>`「${t}」${n>1?`（${n} 次）`:''}`).join('、');$('#summaryText').value=`${month.replace('-',' 年 ')} 月，我记录了 ${s.days} 天生活。学习共 ${duration(s.study)}，日均 ${duration(s.avg)}，有 ${s.hit} 天达到当前目标；${p.study?`较上月${s.study>=p.study?'增加':'减少'} ${Math.abs(round((s.study-p.study)/p.study*100))}%。`:'上月暂无学习数据可比较。'}${s.sleep===null?'睡眠尚无完整记录':`平均睡眠 ${round(s.sleep)} 小时，平均质量 ${s.quality===null?'未记录':round(s.quality)+'/5'}`}，${s.late?`最晚入睡记录为 ${s.late.date} 的 ${s.late.time}`:'尚无入睡时间记录'}。运动 ${s.exercise} 次（${comparison(s.exercise,p.exercise)}），分布为 ${Object.entries(s.dist).map(([k,v])=>k+' '+v+' 次').join('、')}。三餐规律率 ${round(s.regular)}%，外卖占比 ${round(s.takeRate)}%。个人探索共 ${duration(s.explore)}（${comparison(s.explore,p.explore)}）${Object.keys(s.topics).length?'，包括 '+Object.entries(s.topics).map(([k,v])=>k+' '+duration(v)).join('、'):''}。截至今天或昨天连续记录 ${streak()} 天，${s.best?'本月最佳单日是 '+s.best.date:'最佳单日等待第一条记录'}。${frequent?'备注里留下了 '+frequent+'。':'这个月的想法，可以从下一条备注开始。'}`;}
-// 05 / Events and backup lifecycle.
-document.addEventListener('input',e=>{const el=e.target;if(el.dataset.path){if(!el.validity.valid)return;data.records[selected]??=blank();const parts=el.dataset.path.split('.');let o=data.records[selected];for(const k of parts.slice(0,-1))o=o[k];o[parts.at(-1)]=el.type==='number'?(el.value===''?'':num(el.value)):el.value;save();update()}if(el.dataset.setting&&el.validity.valid&&num(el.value)>0){data.settings[el.dataset.setting]=num(el.value);save();update()}});
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.add){data.records[selected]??=blank();const t=b.dataset.add;data.records[selected][t].push(t==='study'?{content:'',minutes:'',note:''}:t==='exercise'?{category:'有氧',action:'',sets:'',minutes:'',rpe:'',note:''}:{topic:'读书',minutes:'',note:''});renderItems(t);save();update();$('#'+t+'Items .item:last-child input, #'+t+'Items .item:last-child select')?.focus()}if(b.dataset.remove){const t=b.dataset.remove;data.records[selected][t].splice(Number(b.dataset.index),1);renderItems(t);save();update()}if(b.dataset.view)setView(b.dataset.view);if(b.dataset.day){selected=b.dataset.day;populate();setView('daily');window.scrollTo({top:0,behavior:'smooth'})}});
-function setView(v){view=v;for(const n of ['daily','monthly','settings'])$('#'+n).hidden=n!==v;for(const b of $$('[data-view]'))b.setAttribute('aria-current',b.dataset.view===v);if(v==='monthly')renderMonth()}
-function navigate(d){if(!validDate(d))return;selected=d;month=d.slice(0,7);populate()}
-$('#prev').onclick=()=>navigate(shift(selected,-1));$('#next').onclick=()=>navigate(shift(selected,1));$('#today').onclick=()=>navigate(today());$('#date').onchange=e=>navigate(e.target.value);$('#month').onchange=e=>{if(/^\d{4}-\d{2}$/.test(e.target.value)){month=e.target.value;renderMonth()}};
-$('#theme').onclick=()=>{data.settings.theme=data.settings.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=data.settings.theme;save()};$('#unit').onclick=()=>{data.settings.unit=data.settings.unit==='hours'?'minutes':'hours';save();update()};$('#generate').onclick=generate;$('#copy').onclick=async()=>{if(!$('#summaryText').value)generate();try{await navigator.clipboard.writeText($('#summaryText').value);toast('总结已复制')}catch{$('#summaryText').focus();$('#summaryText').select();toast('请复制选中的总结文字')}};
-$('#export').onclick=()=>{const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`notebook-life-${today()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};$('#import').onclick=()=>$('#file').click();$('#file').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>10*1024*1024)throw Error('备份不得超过 10 MB');const incoming=validate(JSON.parse(await file.text()));if(!confirm(`导入 ${Object.keys(incoming.records).length} 天记录？同日期记录与目标设置将被覆盖，请先导出当前备份。`))return;data={records:{...data.records,...incoming.records},settings:incoming.settings};storageBroken=false;flush();populate();toast('备份已导入')}catch(err){toast('导入失败：'+err.message)}finally{e.target.value=''}};
-populate();
-</script></body></html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>日常 · Jonathan's Notebook</title>
+    <style>
+      /* 01 / Tokens and responsive layout */
+      :root {
+        --bg: #101311;
+        --card: #1a1f1b;
+        --field: #121713;
+        --line: #303a32;
+        --text: #edf2ea;
+        --muted: #9ca99e;
+        --accent: #b9db8b;
+        --ink: #192411;
+        --up: #f38e8e;
+        --down: #82c8a0;
+        color-scheme: dark;
+        font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+      [data-theme="light"] {
+        --bg: #f2f4ee;
+        --card: #fff;
+        --field: #f5f7f1;
+        --line: #d9e0d4;
+        --text: #243022;
+        --muted: #65715f;
+        --accent: #577d33;
+        --ink: #fff;
+        --up: #c34242;
+        --down: #278254;
+        color-scheme: light;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+      button,
+      a,
+      input,
+      select,
+      textarea {
+        touch-action: manipulation;
+      }
+      button,
+      a {
+        transition:
+          background 0.18s,
+          transform 0.18s;
+      }
+      button {
+        cursor: pointer;
+        background: var(--field);
+        color: var(--text);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 10px 15px;
+        min-height: 44px;
+      }
+      button:hover {
+        border-color: var(--accent);
+      }
+      button:active {
+        transform: scale(0.98);
+      }
+      button.primary {
+        background: var(--accent);
+        color: var(--ink);
+        border-color: transparent;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+      header {
+        max-width: 1220px;
+        margin: auto;
+        padding: 26px 28px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+      }
+      .brand {
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .brand small {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        letter-spacing: 2px;
+      }
+      main {
+        max-width: 1220px;
+        margin: auto;
+        padding: 18px 28px 110px;
+      }
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 3px;
+        color: var(--accent);
+      }
+      h1 {
+        font-size: clamp(30px, 4vw, 48px);
+        line-height: 1.3;
+        margin: 12px 0;
+      }
+      h2 {
+        font-size: 20px;
+        margin: 0;
+      }
+      h3 {
+        font-size: 15px;
+        margin: 0 0 12px;
+      }
+      .muted,
+      small {
+        color: var(--muted);
+      }
+      p {
+        margin: 10px 0;
+      }
+      .intro {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin: 18px 0 28px;
+      }
+      .datebar,
+      .row,
+      .actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .datebar {
+        background: var(--card);
+        padding: 8px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+      }
+      .datebar input {
+        width: 155px;
+        border: 0;
+        background: none;
+      }
+      .datebar button {
+        padding: 8px 12px;
+      }
+      .rings {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .ringcard {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 20px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+      }
+      .ring {
+        width: 62px;
+        height: 62px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: conic-gradient(var(--accent) var(--p), var(--line) 0);
+        display: grid;
+        place-items: center;
+      }
+      .ring span {
+        border-radius: 50%;
+        background: var(--card);
+        width: 50px;
+        height: 50px;
+        display: grid;
+        place-items: center;
+        font-size: 12px;
+      }
+      .number {
+        font-size: 26px;
+        font-weight: 650;
+        line-height: 1.25;
+      }
+      .reminder {
+        padding: 16px 0 24px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        align-items: start;
+      }
+      .card {
+        padding: 24px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        box-shadow: 0 8px 24px #00000008;
+      }
+      .cardhead {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+      .cardhead small {
+        font-size: 12px;
+      }
+      .wide {
+        grid-column: 1/-1;
+      }
+      .badge {
+        color: var(--accent);
+        font-size: 12px;
+      }
+      .fields {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      label {
+        display: block;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      input,
+      select,
+      textarea {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        background: var(--field);
+        border: 1px solid var(--line);
+        color: var(--text);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 5px 0 0;
+        min-height: 44px;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 72px;
+      }
+      label.note {
+        margin-top: 14px;
+      }
+      .item {
+        border: 1px solid var(--line);
+        padding: 14px;
+        border-radius: 14px;
+        margin-bottom: 12px;
+      }
+      .item .remove {
+        margin-top: 10px;
+        font-size: 12px;
+      }
+      .empty {
+        padding: 16px 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .totals {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 12px 0;
+      }
+      .totals span {
+        padding: 5px 10px;
+        background: var(--field);
+        border-radius: 8px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .mealgrid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .mealgrid label {
+        margin-top: 10px;
+      }
+      nav {
+        position: fixed;
+        bottom: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 6px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        display: flex;
+        gap: 6px;
+        z-index: 10;
+        box-shadow: 0 10px 35px #0004;
+      }
+      nav button {
+        border: 0;
+        white-space: nowrap;
+      }
+      nav button[aria-current="true"] {
+        background: var(--accent);
+        color: var(--ink);
+      }
+      [hidden] {
+        display: none !important;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin: 20px 0;
+      }
+      .stat {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+      }
+      .stat .number {
+        margin: 6px 0;
+      }
+      .up {
+        color: var(--up);
+      }
+      .down {
+        color: var(--down);
+      }
+      .heat {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 8px;
+        margin-top: 18px;
+      }
+      .heat button {
+        padding: 8px 0;
+        min-width: 0;
+        background: color-mix(
+          in srgb,
+          var(--accent) var(--level),
+          var(--field)
+        );
+        font-size: 12px;
+      }
+      .bars {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .bar {
+        display: grid;
+        grid-template-columns: 56px 1fr 35px;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+      }
+      .track {
+        height: 10px;
+        background: var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .track i {
+        display: block;
+        height: 100%;
+        background: var(--accent);
+        border-radius: 8px;
+        transition: width 0.2s;
+      }
+      #summaryText {
+        min-height: 160px;
+      }
+      .settings {
+        max-width: 760px;
+        margin: auto;
+      }
+      .settings .fields {
+        margin-top: 22px;
+      }
+      .foot {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 28px 0;
+      }
+      #status {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      #toast {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--accent);
+        color: var(--ink);
+        padding: 12px 20px;
+        border-radius: 12px;
+        z-index: 30;
+        max-width: 90%;
+      }
+      @media (max-width: 950px) {
+        .rings {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .intro {
+          display: block;
+        }
+        .datebar {
+          margin-top: 22px;
+          width: fit-content;
+        }
+        .mealgrid {
+          grid-template-columns: 1fr;
+        }
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 620px) {
+        header {
+          padding: 18px 16px;
+        }
+        main {
+          padding: 12px 16px 110px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .card {
+          padding: 18px;
+        }
+        .ringcard {
+          padding: 14px;
+          gap: 10px;
+        }
+        .ring {
+          width: 48px;
+          height: 48px;
+        }
+        .ring span {
+          width: 38px;
+          height: 38px;
+          font-size: 10px;
+        }
+        .number {
+          font-size: 22px;
+        }
+        .ringcard small {
+          font-size: 10px;
+        }
+        .rings {
+          gap: 10px;
+        }
+        .fields {
+          gap: 10px;
+        }
+        .heat {
+          gap: 5px;
+        }
+        .heat button {
+          font-size: 11px;
+        }
+        .brand {
+          font-size: 15px;
+        }
+        .intro {
+          margin-top: 10px;
+        }
+        nav {
+          bottom: 12px;
+        }
+        header .actions {
+          gap: 6px;
+        }
+        header button {
+          padding: 8px 10px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="./"
+        >Jonathan's Notebook<small>PERSONAL SPACE / 日常</small></a
+      >
+      <div class="actions">
+        <span id="status" role="status" aria-live="polite">本地记录</span
+        ><button id="theme" aria-label="切换深浅色">◐</button>
+      </div>
+    </header>
+    <main>
+      <div class="intro">
+        <div>
+          <div class="eyebrow">LIFE, ONE DAY AT A TIME</div>
+          <h1>把日子，慢慢记下来。</h1>
+          <p class="muted">学习、休息，也留一点时间给自己。</p>
+        </div>
+        <div class="datebar">
+          <button id="prev" aria-label="前一天">←</button
+          ><label
+            ><span hidden>记录日期</span
+            ><input id="date" type="date" required /></label
+          ><button id="next" aria-label="后一天">→</button
+          ><button id="today">今天</button>
+        </div>
+      </div>
+      <section id="daily">
+        <div class="rings" id="rings"></div>
+        <p class="reminder" id="reminder" aria-live="polite"></p>
+        <div class="grid">
+          <article class="card">
+            <div class="cardhead">
+              <h2>01 / 学习</h2>
+              <button id="unit">显示小时</button>
+            </div>
+            <div id="studyTotal" class="number"></div>
+            <div id="studyItems"></div>
+            <button data-add="study" class="primary">＋ 添加学习项</button
+            ><label class="note"
+              >学习备注<textarea
+                data-path="studyNote"
+                placeholder="今天理解了什么，或者遇到了什么问题？"
+              ></textarea>
+            </label>
+          </article>
+          <article class="card">
+            <div class="cardhead">
+              <h2>02 / 睡眠</h2>
+              <span class="badge" id="sleepTotal"></span>
+            </div>
+            <p class="muted">
+              <small>记录这一天起床前的一次睡眠，自动识别跨零点。</small>
+            </p>
+            <div class="fields">
+              <label>入睡时间<input type="time" data-path="sleep.bed" /></label
+              ><label
+                >起床时间<input type="time" data-path="sleep.wake" /></label
+              ><label
+                >睡眠质量<select data-path="sleep.quality">
+                  <option value="">未记录</option>
+                  <option value="1">1 · 很差</option>
+                  <option value="2">2 · 较差</option>
+                  <option value="3">3 · 一般</option>
+                  <option value="4">4 · 不错</option>
+                  <option value="5">5 · 很好</option>
+                </select></label
+              >
+            </div>
+            <label class="note"
+              >睡眠备注<textarea
+                data-path="sleep.note"
+                placeholder="醒来时的感受、梦境或影响睡眠的事情"
+              ></textarea>
+            </label>
+          </article>
+          <article class="card wide">
+            <div class="cardhead">
+              <h2>03 / 运动健身</h2>
+              <small>休息也是计划的一部分</small>
+            </div>
+            <div class="totals" id="muscles"></div>
+            <div id="exerciseItems"></div>
+            <button data-add="exercise" class="primary">＋ 添加训练组</button
+            ><label class="note"
+              >运动备注<textarea
+                data-path="exerciseNote"
+                placeholder="身体状态、动作感受，或好好休息的一天"
+              ></textarea>
+            </label>
+          </article>
+          <article class="card wide">
+            <div class="cardhead">
+              <h2>04 / 好好吃饭</h2>
+              <small>三餐有记录，生活有节奏</small>
+            </div>
+            <div class="mealgrid" id="meals"></div>
+            <label class="note"
+              >三餐备注<textarea
+                data-path="mealNote"
+                placeholder="今天喜欢的一道菜，或想尝试的搭配"
+              ></textarea>
+            </label>
+          </article>
+          <article class="card wide">
+            <div class="cardhead">
+              <h2>05 / 个人探索</h2>
+              <small>给好奇心留一块地方</small>
+            </div>
+            <div id="exploreItems"></div>
+            <button data-add="explore" class="primary">＋ 添加探索</button
+            ><label class="note"
+              >探索备注<textarea
+                data-path="exploreNote"
+                placeholder="新的灵感、想法和小小的发现"
+              ></textarea>
+            </label>
+          </article>
+        </div>
+      </section>
+      <section id="monthly" hidden>
+        <div class="cardhead">
+          <div>
+            <h2>月度回望</h2>
+            <small>每一次记录，都在这里积累。</small>
+          </div>
+          <label>统计月份<input type="month" id="month" /></label>
+        </div>
+        <div id="monthStats" class="stats"></div>
+        <div class="grid">
+          <article class="card">
+            <h2>运动分布</h2>
+            <div id="exerciseBars" class="bars"></div>
+          </article>
+          <article class="card">
+            <h2>探索的方向</h2>
+            <div id="exploreBars" class="bars"></div>
+          </article>
+          <article class="card wide">
+            <h2>最近 30 天</h2>
+            <p class="muted"><small id="heatLabel"></small></p>
+            <div id="heat" class="heat"></div>
+            <small>颜色越深，记录模块越多 · 点击补录</small>
+          </article>
+          <article class="card wide">
+            <div class="cardhead">
+              <h2>把这个月写成一段话</h2>
+              <button id="generate" class="primary">生成月度文字总结</button>
+            </div>
+            <label
+              >月度文字总结<textarea
+                id="summaryText"
+                readonly
+                placeholder="点击生成，整理数据和高频备注。所有计算均在本地完成。"
+              ></textarea></label
+            ><button id="copy" style="margin-top: 12px">复制总结</button>
+            <p><small>备注按短句出现频率整理，不发送给任何服务。</small></p>
+          </article>
+        </div>
+        <p class="foot">
+          统计口径：日均学习按本月截至今天的自然日计算，历史月按整月；睡眠仅统计填写完整的日期。运动次数按有训练的日期计，各分类按当日出现一次计。三餐规律率
+          = 已吃餐数 ÷
+          应有餐数；外卖占比以已吃餐数为分母。最佳单日按四项目标完成度等权计算。
+        </p>
+      </section>
+      <section id="settings" class="settings" hidden>
+        <article class="card">
+          <div class="eyebrow">YOUR OWN PACE</div>
+          <h1>按自己的节奏来。</h1>
+          <p class="muted">目标是方向，可以随时调整。</p>
+          <div class="fields">
+            <label
+              >每日学习目标 / 分钟<input
+                type="number"
+                min="1"
+                max="1440"
+                data-setting="study" /></label
+            ><label
+              >睡眠目标 / 小时<input
+                type="number"
+                min="1"
+                max="24"
+                step="0.5"
+                data-setting="sleep" /></label
+            ><label
+              >每周运动目标 / 次<input
+                type="number"
+                min="1"
+                max="7"
+                data-setting="exercise" /></label
+            ><label
+              >每日探索目标 / 分钟<input
+                type="number"
+                min="1"
+                max="1440"
+                data-setting="explore"
+            /></label>
+          </div>
+          <p class="foot">
+            运动进度环显示所选日期所在周的训练天数（周一至周日），其他进度环显示当日数据。统计使用当前目标。
+          </p>
+        </article>
+        <article class="card" style="margin-top: 18px">
+          <h2>数据，留在自己手里。</h2>
+          <p class="muted">
+            仅存当前浏览器。清理浏览器数据或更换设备不会自动同步，请定期导出备份。
+          </p>
+          <div class="actions">
+            <button id="export" class="primary">导出 JSON 备份</button
+            ><button id="import">导入备份</button
+            ><input
+              type="file"
+              id="file"
+              accept="application/json,.json"
+              hidden
+            />
+          </div>
+          <p class="foot">
+            导入前校验格式并确认；同一天的记录将由备份覆盖，其他日期保留。无登录、无数据上报、无外部依赖。
+          </p>
+        </article>
+      </section>
+      <p class="foot">日常 / A little more present, every day.</p>
+    </main>
+    <nav aria-label="应用导航">
+      <button data-view="daily" aria-current="true">今日记录</button
+      ><button data-view="monthly">月度回望</button
+      ><button data-view="settings">目标与设置</button>
+    </nav>
+    <div id="toast" role="status" hidden></div>
+    <script>
+      "use strict";
+      // 02 / Data model, local calendar helpers and persistence (one key only).
+      const KEY = "notebook.life.v1",
+        CATS = ["有氧", "胸", "背", "肩", "腿"],
+        TOPICS = ["读书", "写作", "副业", "技能", "其他"];
+      const defaults = {
+        study: 180,
+        sleep: 8,
+        exercise: 3,
+        explore: 30,
+        theme: "dark",
+        unit: "minutes",
+      };
+      const $ = (s) => document.querySelector(s),
+        $$ = (s) => [...document.querySelectorAll(s)];
+      const esc = (x) =>
+        String(x ?? "").replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      const num = (x) => Math.max(0, Number(x) || 0),
+        round = (x) => Math.round(x * 10) / 10;
+      function key(d) {
+        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+      }
+      function shift(k, n) {
+        const d = new Date(k + "T12:00:00");
+        d.setDate(d.getDate() + n);
+        return key(d);
+      }
+      const today = () => key(new Date());
+      let selected = today(),
+        month = selected.slice(0, 7),
+        view = "daily",
+        timer,
+        toastTimer,
+        storageBroken = false;
+      function blank() {
+        return {
+          study: [],
+          studyNote: "",
+          sleep: { bed: "", wake: "", quality: "", note: "" },
+          exercise: [],
+          exerciseNote: "",
+          meals: { breakfast: {}, lunch: {}, dinner: {} },
+          mealNote: "",
+          explore: [],
+          exploreNote: "",
+        };
+      }
+      function validDate(k) {
+        return (
+          /^\d{4}-\d{2}-\d{2}$/.test(k) &&
+          !isNaN(new Date(k + "T12:00:00")) &&
+          key(new Date(k + "T12:00:00")) === k
+        );
+      }
+      // Validate backups and stored values before allowing them into forms/statistics.
+      function validate(raw) {
+        if (
+          !raw ||
+          typeof raw !== "object" ||
+          !raw.records ||
+          typeof raw.records !== "object" ||
+          Array.isArray(raw.records) ||
+          !raw.settings ||
+          typeof raw.settings !== "object"
+        )
+          throw Error("备份格式不正确");
+        const settings = { ...defaults };
+        for (const k of ["study", "sleep", "exercise", "explore"])
+          if (raw.settings[k] !== undefined) {
+            const v = Number(raw.settings[k]);
+            if (
+              !Number.isFinite(v) ||
+              v <= 0 ||
+              v > ({ sleep: 24, exercise: 7 }[k] || 1440)
+            )
+              throw Error("目标数值不正确");
+            settings[k] = v;
+          }
+        if (["dark", "light"].includes(raw.settings.theme))
+          settings.theme = raw.settings.theme;
+        if (["minutes", "hours"].includes(raw.settings.unit))
+          settings.unit = raw.settings.unit;
+        const records = {};
+        const str = (v) => {
+          if (v === undefined || v === null) return "";
+          if (typeof v !== "string" || v.length > 20000)
+            throw Error("文本格式不正确");
+          return v;
+        };
+        const numeric = (v, max) => {
+          if (v === undefined || v === "") return "";
+          if (!Number.isFinite(Number(v)) || Number(v) < 0 || Number(v) > max)
+            throw Error("记录数值不正确");
+          return Number(v);
+        };
+        for (const [date, r] of Object.entries(raw.records)) {
+          if (!validDate(date) || !r || typeof r !== "object")
+            throw Error("日期或记录格式不正确");
+          const b = blank();
+          for (const n of [
+            "studyNote",
+            "exerciseNote",
+            "mealNote",
+            "exploreNote",
+          ])
+            b[n] = str(r[n]);
+          for (const type of ["study", "exercise", "explore"]) {
+            if (r[type] !== undefined && !Array.isArray(r[type]))
+              throw Error("记录列表格式不正确");
+            b[type] = (r[type] || []).map((i) => {
+              if (!i || typeof i !== "object") throw Error("记录项格式不正确");
+              return type === "exercise"
+                ? {
+                    category: CATS.includes(i.category) ? i.category : "有氧",
+                    action: str(i.action),
+                    sets: numeric(i.sets, 1000),
+                    minutes: numeric(i.minutes, 1440),
+                    rpe: numeric(i.rpe, 10),
+                    note: str(i.note),
+                  }
+                : type === "study"
+                  ? {
+                      content: str(i.content),
+                      minutes: numeric(i.minutes, 1440),
+                      note: str(i.note),
+                    }
+                  : {
+                      topic: TOPICS.includes(i.topic) ? i.topic : "其他",
+                      minutes: numeric(i.minutes, 1440),
+                      note: str(i.note),
+                    };
+            });
+          }
+          const s = r.sleep || {};
+          for (const t of ["bed", "wake"]) {
+            b.sleep[t] = str(s[t]);
+            if (b.sleep[t] && !/^([01]\d|2[0-3]):[0-5]\d$/.test(b.sleep[t]))
+              throw Error("时间格式不正确");
+          }
+          b.sleep.quality = numeric(s.quality, 5);
+          if (
+            b.sleep.quality !== "" &&
+            (!Number.isInteger(b.sleep.quality) || b.sleep.quality < 1)
+          )
+            throw Error("睡眠质量应为 1–5");
+          b.sleep.note = str(s.note);
+          for (const m of ["breakfast", "lunch", "dinner"]) {
+            const x = r.meals?.[m] || {};
+            b.meals[m] = {
+              status: ["已吃", "未吃"].includes(x.status) ? x.status : "",
+              content: str(x.content),
+              source: ["自制", "外卖", "其他"].includes(x.source)
+                ? x.source
+                : "",
+              health: ["好", "一般", "差"].includes(x.health) ? x.health : "",
+              note: str(x.note),
+            };
+          }
+          records[date] = b;
+        }
+        return { records, settings };
+      }
+      let data = { records: {}, settings: { ...defaults } };
+      try {
+        const saved = localStorage.getItem(KEY);
+        if (saved) data = validate(JSON.parse(saved));
+      } catch (e) {
+        storageBroken = true;
+        $("#status").textContent = "存储读取失败，请先导出或检查浏览器";
+      }
+      const record = () => data.records[selected] || blank();
+      function flush() {
+        clearTimeout(timer);
+        timer = null;
+        try {
+          if (storageBroken) throw Error();
+          localStorage.setItem(KEY, JSON.stringify(data));
+          $("#status").textContent = "已保存在本机";
+        } catch {
+          $("#status").textContent = "保存失败，请导出备份";
+        }
+      }
+      function save() {
+        clearTimeout(timer);
+        $("#status").textContent = "正在保存…";
+        timer = setTimeout(flush, 250);
+      }
+      window.addEventListener("pagehide", () => {
+        if (timer) flush();
+      });
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden && timer) flush();
+      });
+      function toast(t) {
+        $("#toast").textContent = t;
+        $("#toast").hidden = false;
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => ($("#toast").hidden = true), 2800);
+      }
+      // 03 / Pure calculations. Missing modules stay absent rather than counting as failures.
+      const sum = (r, t) => r[t].reduce((a, i) => a + num(i.minutes), 0);
+      function sleepHours(r) {
+        const { bed, wake } = r.sleep;
+        if (!bed || !wake) return null;
+        const mins = (t) => Number(t.slice(0, 2)) * 60 + Number(t.slice(3));
+        return ((mins(wake) - mins(bed) + 1440) % 1440) / 60;
+      }
+      const trained = (r) =>
+        r.exercise.some((i) => num(i.sets) > 0 || num(i.minutes) > 0);
+      function activity(r) {
+        return [
+          r.study.some((i) => i.content || num(i.minutes) || i.note) ||
+            r.studyNote,
+          r.sleep.bed || r.sleep.wake || r.sleep.quality || r.sleep.note,
+          r.exercise.length || r.exerciseNote,
+          Object.values(r.meals).some((m) => Object.values(m).some(Boolean)) ||
+            r.mealNote,
+          r.explore.length || r.exploreNote,
+        ].filter(Boolean).length;
+      }
+      function weekCount(date) {
+        const d = new Date(date + "T12:00:00"),
+          start = shift(date, -((d.getDay() + 6) % 7));
+        return Array.from(
+          { length: 7 },
+          (_, i) => data.records[shift(start, i)],
+        ).filter((r) => r && trained(r)).length;
+      }
+      function score(r) {
+        return (
+          (Math.min(sum(r, "study") / data.settings.study, 1) +
+            Math.min((sleepHours(r) || 0) / data.settings.sleep, 1) +
+            (trained(r) ? 1 : 0) +
+            Math.min(sum(r, "explore") / data.settings.explore, 1)) /
+          4
+        );
+      }
+      function streak() {
+        let d = today();
+        if (!data.records[d] || !activity(data.records[d])) d = shift(d, -1);
+        let n = 0;
+        while (data.records[d] && activity(data.records[d])) {
+          n++;
+          d = shift(d, -1);
+        }
+        return n;
+      }
+      function stats(m) {
+        const end = key(
+          new Date(Number(m.slice(0, 4)), Number(m.slice(5)), 0, 12),
+        );
+        const elapsed =
+          m === today().slice(0, 7)
+            ? Number(today().slice(8))
+            : m > today().slice(0, 7)
+              ? 0
+              : Number(end.slice(8));
+        const rows = Object.entries(data.records).filter(
+          ([d, r]) => d.startsWith(m) && d <= today() && activity(r),
+        );
+        let study = 0,
+          explore = 0,
+          hit = 0,
+          sleep = [],
+          quality = [],
+          late = null,
+          exercise = 0,
+          eaten = 0,
+          takeout = 0,
+          best = null,
+          dist = Object.fromEntries(CATS.map((c) => [c, 0])),
+          topics = {},
+          notes = [];
+        for (const [d, r] of rows) {
+          study += sum(r, "study");
+          explore += sum(r, "explore");
+          if (sum(r, "study") >= data.settings.study) hit++;
+          const h = sleepHours(r);
+          if (h !== null) sleep.push(h);
+          if (r.sleep.quality) quality.push(num(r.sleep.quality));
+          if (r.sleep.bed) {
+            let v =
+              Number(r.sleep.bed.slice(0, 2)) * 60 +
+              Number(r.sleep.bed.slice(3));
+            if (v < 720) v += 1440;
+            if (!late || v > late.v) late = { date: d, time: r.sleep.bed, v };
+          }
+          if (trained(r)) exercise++;
+          for (const c of CATS)
+            if (
+              r.exercise.some(
+                (i) => i.category === c && (num(i.sets) || num(i.minutes)),
+              )
+            )
+              dist[c]++;
+          for (const meal of Object.values(r.meals))
+            if (meal.status === "已吃") {
+              eaten++;
+              if (meal.source === "外卖") takeout++;
+            }
+          for (const i of r.explore)
+            topics[i.topic] = (topics[i.topic] || 0) + num(i.minutes);
+          if (!best || score(r) > best.score)
+            best = { date: d, score: score(r) };
+          notes.push(
+            r.studyNote,
+            r.sleep.note,
+            r.exerciseNote,
+            r.mealNote,
+            r.exploreNote,
+            ...r.study.map((i) => i.note),
+            ...r.exercise.map((i) => i.note),
+            ...r.explore.map((i) => i.note),
+            ...Object.values(r.meals).map((i) => i.note),
+          );
+        }
+        return {
+          study,
+          explore,
+          hit,
+          avg: elapsed ? study / elapsed : 0,
+          sleep: sleep.length
+            ? sleep.reduce((a, b) => a + b) / sleep.length
+            : null,
+          quality: quality.length
+            ? quality.reduce((a, b) => a + b) / quality.length
+            : null,
+          late,
+          exercise,
+          dist,
+          topics,
+          eaten,
+          takeout,
+          regular: elapsed ? (eaten / (elapsed * 3)) * 100 : 0,
+          takeRate: eaten ? (takeout / eaten) * 100 : 0,
+          best,
+          notes,
+          days: rows.length,
+          elapsed,
+        };
+      }
+      // 04 / Form rendering; user text is always escaped. Delegated input updates do not replace focused controls.
+      function input(label, path, value = "", type = "text", max) {
+        return `<label>${label}<input type="${type}" data-path="${path}" value="${esc(value)}" ${type === "number" ? `min="0" max="${max || 1440}" step="${path.endsWith("sets") ? "1" : "0.1"}"` : ""}></label>`;
+      }
+      function select(label, path, options, value) {
+        return `<label>${label}<select data-path="${path}">${options.map((x) => `<option value="${esc(x)}" ${x === value ? "selected" : ""}>${esc(x || "未记录")}</option>`).join("")}</select></label>`;
+      }
+      function note(path, value) {
+        return `<label class="note">备注<textarea data-path="${path}" placeholder="写下想留下的细节">${esc(value)}</textarea></label>`;
+      }
+      function renderItems(type) {
+        const items = record()[type];
+        $("#" + type + "Items").innerHTML = items.length
+          ? items
+              .map((i, n) => {
+                const p = `${type}.${n}.`;
+                let fields =
+                  type === "study"
+                    ? input("学习内容", p + "content", i.content) +
+                      input("时长 / 分钟", p + "minutes", i.minutes, "number")
+                    : type === "exercise"
+                      ? select("分类", p + "category", CATS, i.category) +
+                        input("动作", p + "action", i.action) +
+                        input("组数", p + "sets", i.sets, "number", 1000) +
+                        input(
+                          "时长 / 分钟",
+                          p + "minutes",
+                          i.minutes,
+                          "number",
+                        ) +
+                        input("强度 RPE / 0–10", p + "rpe", i.rpe, "number", 10)
+                      : select("主题", p + "topic", TOPICS, i.topic) +
+                        input(
+                          "时长 / 分钟",
+                          p + "minutes",
+                          i.minutes,
+                          "number",
+                        );
+                return `<div class="item"><div class="fields">${fields}</div>${note(p + "note", i.note)}<button class="remove" data-remove="${type}" data-index="${n}" aria-label="删除第 ${n + 1} 条${type === "study" ? "学习" : type === "exercise" ? "训练" : "探索"}记录">移除此项</button></div>`;
+              })
+              .join("")
+          : `<p class="empty">${type === "study" ? "从一段专注开始，添加今天的第一项学习。" : type === "exercise" ? "今天还没有训练记录，休息日也很好。" : "读几页书，试一个想法，记录你的好奇心。"}</p>`;
+      }
+      function populate() {
+        const r = record();
+        for (const t of ["study", "exercise", "explore"]) renderItems(t);
+        $("#meals").innerHTML = [
+          ["breakfast", "早餐"],
+          ["lunch", "午餐"],
+          ["dinner", "晚餐"],
+        ]
+          .map(([k, title]) => {
+            const m = r.meals[k],
+              p = `meals.${k}.`;
+            return `<div class="item"><h3>${title}</h3>${select("用餐状态", p + "status", ["", "已吃", "未吃"], m.status)}${input("吃了什么", p + "content", m.content)}${select("来源", p + "source", ["", "自制", "外卖", "其他"], m.source)}${select("主观健康度", p + "health", ["", "好", "一般", "差"], m.health)}${note(p + "note", m.note)}</div>`;
+          })
+          .join("");
+        for (const el of $$("[data-path]")) {
+          const v = el.dataset.path.split(".").reduce((o, k) => o?.[k], r);
+          el.value = v ?? "";
+        }
+        $("#date").value = selected;
+        $("#month").value = month;
+        for (const el of $$("[data-setting]"))
+          el.value = data.settings[el.dataset.setting];
+        document.documentElement.dataset.theme = data.settings.theme;
+        update();
+      }
+      function duration(n) {
+        return data.settings.unit === "hours"
+          ? `${round(n / 60)} 小时`
+          : `${round(n)} 分钟`;
+      }
+      function update() {
+        const r = record(),
+          s = data.settings,
+          values = [
+            sum(r, "study"),
+            sleepHours(r) || 0,
+            weekCount(selected),
+            sum(r, "explore"),
+          ],
+          goals = [s.study, s.sleep, s.exercise, s.explore],
+          titles = ["学习", "睡眠", "本周运动", "探索"],
+          units = ["分钟", "小时", "次", "分钟"];
+        $("#rings").innerHTML = values
+          .map(
+            (v, i) =>
+              `<div class="ringcard"><div class="ring" style="--p:${Math.min(v / goals[i], 1) * 100}%"><span>${Math.round((v / goals[i]) * 100)}%</span></div><div><small>${titles[i]}</small><div class="number">${round(v)}<small> ${units[i]}</small></div><small>目标 ${goals[i]} ${units[i]}</small></div></div>`,
+          )
+          .join("");
+        $("#studyTotal").textContent = duration(values[0]);
+        $("#unit").textContent = s.unit === "hours" ? "显示分钟" : "显示小时";
+        $("#sleepTotal").textContent =
+          sleepHours(r) === null
+            ? "等待一次好眠"
+            : `${round(sleepHours(r))} 小时`;
+        $("#muscles").innerHTML = CATS.map(
+          (c) =>
+            `<span>${c} ${r.exercise.filter((i) => i.category === c && (num(i.sets) || num(i.minutes))).length}</span>`,
+        ).join("");
+        $("#reminder").textContent =
+          values[0] < s.study
+            ? `${selected === today() ? "今天" : "这一天"}学习 ${round(values[0])} 分钟，距离目标还剩 ${duration(s.study - values[0])}，要不要先来 25 分钟？`
+            : values[3] < s.explore
+              ? "给自己留一点探索时间，做一件好奇的小事。"
+              : "今天已经留下了自己的节奏，好好休息。";
+        if (view === "monthly") renderMonth();
+      }
+      function bars(target, dist, unit) {
+        const max = Math.max(...Object.values(dist), 1);
+        $(target).innerHTML = Object.keys(dist).length
+          ? Object.entries(dist)
+              .map(
+                ([name, v]) =>
+                  `<div class="bar"><span>${esc(name)}</span><div class="track" role="img" aria-label="${esc(name)} ${round(v)} ${unit}"><i style="width:${(v / max) * 100}%"></i></div><span>${round(v)}</span></div>`,
+              )
+              .join("")
+          : '<p class="empty">还没有记录，探索会慢慢有方向。</p>';
+      }
+      function previousMonth(m) {
+        return key(
+          new Date(Number(m.slice(0, 4)), Number(m.slice(5)) - 2, 1, 12),
+        ).slice(0, 7);
+      }
+      function change(v, p) {
+        if (!p) return v ? "较上月 新增" : "较上月 持平";
+        const n = ((v - p) / p) * 100;
+        return `<span class="${n > 0 ? "up" : n < 0 ? "down" : ""}">较上月 ${n > 0 ? "↑" : n < 0 ? "↓" : ""}${Math.abs(round(n))}%</span>`;
+      }
+      function renderMonth() {
+        const s = stats(month),
+          p = stats(previousMonth(month));
+        const tiles = [
+          ["学习总时长", duration(s.study), change(s.study, p.study)],
+          ["日均学习", duration(s.avg), `达标 ${s.hit} 天`],
+          [
+            "平均睡眠",
+            s.sleep === null ? "—" : `${round(s.sleep)} 小时`,
+            (s.quality === null
+              ? "质量未记录"
+              : `平均质量 ${round(s.quality)} / 5`) +
+              ` · ${s.sleep === null || p.sleep === null ? "上月暂无可比睡眠" : change(s.sleep, p.sleep)}`,
+          ],
+          [
+            "最晚入睡",
+            s.late ? s.late.time : "—",
+            s.late ? s.late.date : "等待睡眠记录",
+          ],
+          ["运动次数", `${s.exercise} 次`, change(s.exercise, p.exercise)],
+          [
+            "三餐规律率",
+            `${round(s.regular)}%`,
+            `外卖占比 ${round(s.takeRate)}% · 已吃 ${s.eaten} 餐<br>${change(s.regular, p.regular)}`,
+          ],
+          ["探索总时长", duration(s.explore), change(s.explore, p.explore)],
+          ["连续记录", `${streak()} 天`, "截至今天或昨天 · 跨月累计"],
+          [
+            "本月最佳单日",
+            s.best ? s.best.date.slice(5) : "—",
+            s.best
+              ? `目标综合完成度 ${Math.round(s.best.score * 100)}%`
+              : "写下第一条记录吧",
+          ],
+        ];
+        $("#monthStats").innerHTML = tiles
+          .map(
+            ([title, v, sub]) =>
+              `<div class="stat"><small>${title}</small><div class="number">${v}</div><small>${sub}</small></div>`,
+          )
+          .join("");
+        bars("#exerciseBars", s.dist, "次");
+        bars("#exploreBars", s.topics, "分钟");
+        const end =
+          month === today().slice(0, 7)
+            ? today()
+            : key(
+                new Date(
+                  Number(month.slice(0, 4)),
+                  Number(month.slice(5)),
+                  0,
+                  12,
+                ),
+              );
+        $("#heatLabel").textContent =
+          `${shift(end, -29)} — ${end} · 空白表示暂无记录`;
+        $("#heat").innerHTML = Array.from({ length: 30 }, (_, i) => {
+          const d = shift(end, i - 29),
+            n = data.records[d] ? activity(data.records[d]) : 0;
+          return `<button data-day="${d}" style="--level:${n ? 15 + n * 14 : 0}%" title="${d} · ${n} 个模块" aria-label="${d}，记录 ${n} 个模块">${d.slice(5)}</button>`;
+        }).join("");
+        if ($("#summaryText").value) generate();
+      }
+      function comparison(v, p) {
+        return p
+          ? `较上月${v >= p ? "增加" : "减少"} ${Math.abs(round(((v - p) / p) * 100))}%`
+          : v
+            ? "上月为 0，本月新增记录"
+            : "与上月持平";
+      }
+      function generate() {
+        const s = stats(month),
+          p = stats(previousMonth(month)),
+          counts = new Map();
+        for (const note of s.notes)
+          for (const phrase of (note || "").split(/[。！？\n；;，,]/)) {
+            const text = phrase.trim();
+            if (text.length > 1) counts.set(text, (counts.get(text) || 0) + 1);
+          }
+        const frequent = [...counts]
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 3)
+          .map(([t, n]) => `「${t}」${n > 1 ? `（${n} 次）` : ""}`)
+          .join("、");
+        $("#summaryText").value =
+          `${month.replace("-", " 年 ")} 月，我记录了 ${s.days} 天生活。学习共 ${duration(s.study)}，日均 ${duration(s.avg)}，有 ${s.hit} 天达到当前目标；${p.study ? `较上月${s.study >= p.study ? "增加" : "减少"} ${Math.abs(round(((s.study - p.study) / p.study) * 100))}%。` : "上月暂无学习数据可比较。"}${s.sleep === null ? "睡眠尚无完整记录" : `平均睡眠 ${round(s.sleep)} 小时，平均质量 ${s.quality === null ? "未记录" : round(s.quality) + "/5"}`}，${s.late ? `最晚入睡记录为 ${s.late.date} 的 ${s.late.time}` : "尚无入睡时间记录"}。运动 ${s.exercise} 次（${comparison(s.exercise, p.exercise)}），分布为 ${Object.entries(
+            s.dist,
+          )
+            .map(([k, v]) => k + " " + v + " 次")
+            .join(
+              "、",
+            )}。三餐规律率 ${round(s.regular)}%，外卖占比 ${round(s.takeRate)}%。个人探索共 ${duration(s.explore)}（${comparison(s.explore, p.explore)}）${
+            Object.keys(s.topics).length
+              ? "，包括 " +
+                Object.entries(s.topics)
+                  .map(([k, v]) => k + " " + duration(v))
+                  .join("、")
+              : ""
+          }。截至今天或昨天连续记录 ${streak()} 天，${s.best ? "本月最佳单日是 " + s.best.date : "最佳单日等待第一条记录"}。${frequent ? "备注里留下了 " + frequent + "。" : "这个月的想法，可以从下一条备注开始。"}`;
+      }
+      // 05 / Events and backup lifecycle.
+      document.addEventListener("input", (e) => {
+        const el = e.target;
+        if (el.dataset.path) {
+          if (!el.validity.valid) return;
+          data.records[selected] ??= blank();
+          const parts = el.dataset.path.split(".");
+          let o = data.records[selected];
+          for (const k of parts.slice(0, -1)) o = o[k];
+          o[parts.at(-1)] =
+            el.type === "number"
+              ? el.value === ""
+                ? ""
+                : num(el.value)
+              : el.value;
+          save();
+          update();
+        }
+        if (el.dataset.setting && el.validity.valid && num(el.value) > 0) {
+          data.settings[el.dataset.setting] = num(el.value);
+          save();
+          update();
+        }
+      });
+      document.addEventListener("click", (e) => {
+        const b = e.target.closest("button");
+        if (!b) return;
+        if (b.dataset.add) {
+          data.records[selected] ??= blank();
+          const t = b.dataset.add;
+          data.records[selected][t].push(
+            t === "study"
+              ? { content: "", minutes: "", note: "" }
+              : t === "exercise"
+                ? {
+                    category: "有氧",
+                    action: "",
+                    sets: "",
+                    minutes: "",
+                    rpe: "",
+                    note: "",
+                  }
+                : { topic: "读书", minutes: "", note: "" },
+          );
+          renderItems(t);
+          save();
+          update();
+          $(
+            "#" +
+              t +
+              "Items .item:last-child input, #" +
+              t +
+              "Items .item:last-child select",
+          )?.focus();
+        }
+        if (b.dataset.remove) {
+          const t = b.dataset.remove;
+          data.records[selected][t].splice(Number(b.dataset.index), 1);
+          renderItems(t);
+          save();
+          update();
+        }
+        if (b.dataset.view) setView(b.dataset.view);
+        if (b.dataset.day) {
+          selected = b.dataset.day;
+          populate();
+          setView("daily");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      });
+      function setView(v) {
+        view = v;
+        for (const n of ["daily", "monthly", "settings"])
+          $("#" + n).hidden = n !== v;
+        for (const b of $$("[data-view]"))
+          b.setAttribute("aria-current", b.dataset.view === v);
+        if (v === "monthly") renderMonth();
+      }
+      function navigate(d) {
+        if (!validDate(d)) return;
+        selected = d;
+        month = d.slice(0, 7);
+        populate();
+      }
+      $("#prev").onclick = () => navigate(shift(selected, -1));
+      $("#next").onclick = () => navigate(shift(selected, 1));
+      $("#today").onclick = () => navigate(today());
+      $("#date").onchange = (e) => navigate(e.target.value);
+      $("#month").onchange = (e) => {
+        if (/^\d{4}-\d{2}$/.test(e.target.value)) {
+          month = e.target.value;
+          renderMonth();
+        }
+      };
+      $("#theme").onclick = () => {
+        data.settings.theme = data.settings.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = data.settings.theme;
+        save();
+      };
+      $("#unit").onclick = () => {
+        data.settings.unit =
+          data.settings.unit === "hours" ? "minutes" : "hours";
+        save();
+        update();
+      };
+      $("#generate").onclick = generate;
+      $("#copy").onclick = async () => {
+        if (!$("#summaryText").value) generate();
+        try {
+          await navigator.clipboard.writeText($("#summaryText").value);
+          toast("总结已复制");
+        } catch {
+          $("#summaryText").focus();
+          $("#summaryText").select();
+          toast("请复制选中的总结文字");
+        }
+      };
+      $("#export").onclick = () => {
+        const blob = new Blob([JSON.stringify(data, null, 2)], {
+            type: "application/json",
+          }),
+          url = URL.createObjectURL(blob),
+          a = document.createElement("a");
+        a.href = url;
+        a.download = `notebook-life-${today()}.json`;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      };
+      $("#import").onclick = () => $("#file").click();
+      $("#file").onchange = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        try {
+          if (file.size > 10 * 1024 * 1024) throw Error("备份不得超过 10 MB");
+          const incoming = validate(JSON.parse(await file.text()));
+          if (
+            !confirm(
+              `导入 ${Object.keys(incoming.records).length} 天记录？同日期记录与目标设置将被覆盖，请先导出当前备份。`,
+            )
+          )
+            return;
+          data = {
+            records: { ...data.records, ...incoming.records },
+            settings: incoming.settings,
+          };
+          storageBroken = false;
+          flush();
+          populate();
+          toast("备份已导入");
+        } catch (err) {
+          toast("导入失败：" + err.message);
+        } finally {
+          e.target.value = "";
+        }
+      };
+      populate();
+    </script>
+  </body>
+</html>

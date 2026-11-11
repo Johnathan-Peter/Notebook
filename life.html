@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark light">
+<title>生活记录 · 云端入口</title>
+<style>
+:root{color-scheme:dark;--bg:#101311;--card:#1a1f1b;--text:#edf2ea;--muted:#9ca99e;--accent:#b9db8b;--line:#303a32;font-family:system-ui,"PingFang SC",sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);line-height:1.8}main{max-width:700px;margin:10vh auto;padding:28px}article{padding:28px;border:1px solid var(--line);border-radius:22px;background:var(--card)}h1{font-size:32px;line-height:1.4;margin:12px 0}p{color:var(--muted)}a{color:var(--accent);text-decoration:none}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}button,.primary{display:inline-block;min-height:44px;border:1px solid var(--line);border-radius:12px;padding:12px 18px;font:inherit;cursor:pointer;background:var(--accent);color:#192411}.secondary{background:transparent;color:var(--accent)}[hidden]{display:none!important}:focus-visible{outline:2px solid var(--accent);outline-offset:4px}small{color:var(--muted)}@media(prefers-color-scheme:light){:root{color-scheme:light;--bg:#f2f4ee;--card:#fff;--text:#243022;--muted:#65715f;--accent:#577d33;--line:#d9e0d4}.primary,button{color:white}}@media(max-width:420px){main{padding:16px;margin-top:6vh}article{padding:22px}}
+</style>
+</head>
+<body><main><a href="./">← Jonathan's Notebook</a><article style="margin-top:24px"><small>日常 / CLOUD SYNC</small><h1>让记录跟着你走。</h1><p>生活记录已升级为私密云端应用。同一 ChatGPT 账号在手机、电脑上都能访问，记录不再局限于某个浏览器。</p><div id="migration" hidden><h2 style="font-size:20px">先带上原来的记录</h2><p id="localInfo"></p><ol><li>点击下方按钮，导出这个浏览器里的记录。</li><li>进入云端应用，在「目标与设置」中选择「导入备份」。</li><li>看到「已保存到云端」后，迁移就完成了。</li></ol><button id="export" class="secondary">导出本机记录</button><p><small>本页面不会清除本机数据，也不会把记录放入网址或公开仓库。</small></p></div><div class="actions"><a class="primary" id="cloud" href="https://jonathan-life-notebook.outstandingdell.chatgpt.site" target="_top">进入云端生活记录 →</a></div><p id="message" role="status">正在检查本机是否有需要迁移的旧记录…</p><small>云端应用由 Sites 托管，仅你可访问。无需另建账号，访问时使用 ChatGPT 登录。</small></article></main>
+<script>
+// Migration reads only the original single key and never removes it.
+const CLOUD='https://jonathan-life-notebook.outstandingdell.chatgpt.site';let raw;
+try{raw=localStorage.getItem('notebook.life.v1');if(raw){document.querySelector('#migration').hidden=false;try{const saved=JSON.parse(raw);document.querySelector('#localInfo').textContent=`检测到本机有 ${Object.keys(saved.records||{}).length} 天旧记录，可先导出再导入云端。`}catch{document.querySelector('#localInfo').textContent='检测到旧版数据，建议先下载备份。若文件格式损坏，请保留原文件以便恢复。'}document.querySelector('#message').textContent='请先备份，旧记录不会自动跨域迁移。'}else{document.querySelector('#message').textContent='没有检测到旧版记录，正在前往云端应用。';window.location.replace(CLOUD)}}catch{document.querySelector('#message').textContent='无法读取本机存储。可以直接进入云端；如曾使用旧版，请在原浏览器中导出备份。'}
+document.querySelector('#export').onclick=()=>{if(!raw)return;const url=URL.createObjectURL(new Blob([raw],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='notebook-life-local-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+</script></body></html>

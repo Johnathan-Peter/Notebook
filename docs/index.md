@@ -36,6 +36,10 @@ comments: true
     </section>
 
     <section class="home-grid home-grid--v2 enter" style="--d: 0.1s;">
+      <a class="home-card" href="life.html" data-instant="false">
+        <h3>生活记录</h3>
+        <p>学习、睡眠、运动与探索，记录日常，回望每个月。</p>
+      </a>
       <a class="home-card" href="Courses/智能控制技术/一、递阶控制/">
         <h3>Class</h3>
         <p>控制、机器人学习课程笔记。</p>

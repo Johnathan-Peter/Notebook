@@ -9,6 +9,7 @@ site_description: Jonathan's personal notebook
 nav:
   - Home:
     - index.md
+  - 生活记录: life.html
   - Courses:
     - 智能控制技术:
       - Courses/智能控制技术/一、递阶控制.md

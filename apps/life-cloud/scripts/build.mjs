@@ -1,0 +1,10 @@
+import{readFileSync,writeFileSync,mkdirSync,rmSync}from'node:fs';import{createHash}from'node:crypto';
+const html=readFileSync('app.html','utf8');const code=html.split('<script>')[1].split('</script>')[0];new Function(code);
+const hash=createHash('sha256').update(code).digest('base64');
+const csp=`default-src 'self'; script-src 'sha256-${hash}'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'`;
+rmSync('dist',{recursive:true,force:true});mkdirSync('dist/server',{recursive:true});mkdirSync('dist/.openai',{recursive:true});
+let validation=readFileSync('worker/validation.js','utf8').replace('export {validate,defaults};','');
+let handler=readFileSync('worker/handler.js','utf8').replace('export function createHandler','function createHandler');
+writeFileSync('dist/server/index.js',`${validation}\n${handler}\nexport default createHandler({html:${JSON.stringify(html)},validate,defaults,csp:${JSON.stringify(csp)}});\n`);
+writeFileSync('dist/.openai/hosting.json',readFileSync('.openai/hosting.json'));
+console.log('Built self-contained Worker with validated application and CSP');
